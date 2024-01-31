@@ -10,7 +10,7 @@ Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs fo
 Create a bubble chart that displays each sample.
 
 ## Part 3: Metadata and Deployment
-Deploy app to a free static page hosting service, such as GitHub Pages.
+Deploy app to the free static page hosting service, GitHub Pages.
 
 ## Part 4: Advanced Challenge Assignment
 Did not complete this part as did not manage to get around to it.
