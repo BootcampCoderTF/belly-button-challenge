@@ -34,7 +34,7 @@ function loadMetadata(sample) {
     d3.json(url).then((data) => {
         let metadata = data.metadata; // Extract metadata information from the fetched data
 
-        let selectedMetadata = metadata.find(entry => entry.id == sample); // Find the metadata entry corresponding to the selected sample
+        let selectedMetadata = metadata.find(entry => entry.id == sample); // Find the metadata entry that matches to the selected sample
         console.log(selectedMetadata); // Log the metadata entry for the selected sample
         d3.select("#sample-metadata").html(""); // Clear any existing content in the metadata panel
 
@@ -50,9 +50,9 @@ function loadMetadata(sample) {
 function loadBarchart(sample) {
     // Use D3 to retrieve all of the data
     d3.json(url).then((data) => {
-        let sampleInfo = data.samples; // Retrieve all sample data
+        let sampleInfo = data.samples; // Retrieve all the sample data
 
-        let value = sampleInfo.filter(result => result.id == sample); // Filter based on the value of the sample
+        let value = sampleInfo.filter(result => result.id == sample); // Filter out the specific sample data based on the sample ID
 
         let valueData = value[0]; // Get the first index from the array
 
@@ -74,7 +74,7 @@ function loadBarchart(sample) {
             labels.push(otuLabel[i]);
         }
 
-        // Set up the trace for the bar chart
+        // Trace for the bar chart
         let trace1 = {
             x: xticks.reverse(),
             y: yticks.reverse(),
@@ -102,7 +102,7 @@ function loadBubblechart(sample) {
     d3.json(url).then((data) => {        
         let sampleInfo = data.samples; // Retrieve all sample data
 
-        let value = sampleInfo.filter(result => result.id == sample); // Filter based on the value of the sample
+        let value = sampleInfo.filter(result => result.id == sample); // Filter out the specific sample data based on the sample ID
 
         let valueData = value[0]; // Get the first index from the array
 
@@ -111,7 +111,7 @@ function loadBubblechart(sample) {
         let sampleValue = valueData.sample_values;
 
         console.log(otuId,otuLabel,sampleValue); // Log the data to the console        
-        // Set up the trace for bubble chart
+        // Trace for the bubble chart
         let trace2 = {
             x: otuId,
             y: sampleValue,
@@ -130,7 +130,7 @@ function loadBubblechart(sample) {
             xaxis: {title: "OTU ID"},
         };
 
-        Plotly.newPlot("bubble", [trace2], layout) // Call Plotly to plot the bubble chart
+        Plotly.newPlot("bubble", [trace2], layout) // use Plotly to plot the bubble chart
     });
 };
 
