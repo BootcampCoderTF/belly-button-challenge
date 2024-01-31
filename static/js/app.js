@@ -10,7 +10,7 @@ d3.json(url).then(function(data) {
 function init() {
     let dropdownMenu = d3.select("#selDataset"); // Select the dropdown menu
     d3.json(url).then((data) => {
-        let names = data.names; // Set a variable for the sample names
+        let names = data.names; // Set variable for the sample names
 
         // Loop to add samples to the dropdown menu
         for (let i = 0; i < names.length; i++) {
@@ -40,17 +40,17 @@ function loadMetadata(sample) {
 
         // A loop to iterate over key/value pairs of the selected metadata
         for (let [key, value] of Object.entries(selectedMetadata)) {
-            console.log(key, value); // Log individual key/value pairs to the console
-            d3.select("#sample-metadata").append("h5").html(`<b>${key.toUpperCase()}:</b> ${value}`); // Append key/value pairs as text elements to the metadata panel
+            console.log(key, value); // Log individual key-value pairs to the console
+            d3.select("#sample-metadata").append("h5").html(`<b>${key.toUpperCase()}:</b> ${value}`); // Append key-value pairs as text elements to the metadata panel
         }
     });
 };
 
 // Function that creates the horizontal bar chart based on the selected sample
 function loadBarchart(sample) {
-    // Use D3 to retrieve all of the data
+    // Use D3 to retrieve all data
     d3.json(url).then((data) => {
-        let sampleInfo = data.samples; // Retrieve all the sample data
+        let sampleInfo = data.samples;
 
         let value = sampleInfo.filter(result => result.id == sample); // Filter out the specific sample data based on the sample ID
 
@@ -104,7 +104,7 @@ function loadBubblechart(sample) {
 
         let value = sampleInfo.filter(result => result.id == sample); // Filter out the specific sample data based on the sample ID
 
-        let valueData = value[0]; // Get the first index from the array
+        let valueData = value[0]; // Get the first index value
 
         let otuId = valueData.otu_ids;
         let otuLabel = valueData.otu_labels;
@@ -124,7 +124,7 @@ function loadBubblechart(sample) {
             }
         };
 
-        // Set up the layout
+        // Set up layout
         let layout = {
             title: "<b>Bacteria Bubble Chart</b>",
             xaxis: {title: "OTU ID"},
